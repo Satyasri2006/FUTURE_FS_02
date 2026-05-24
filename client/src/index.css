@@ -36,3 +36,19 @@
     transform: translateY(0);
   }
 }
+
+body {
+  @apply bg-bg text-text font-sans;
+}
+
+* {
+  @apply border-muted/20;
+}
+
+.glow {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
+}
+
+.glow-strong {
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.25);
+}

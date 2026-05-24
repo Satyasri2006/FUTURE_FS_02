@@ -46,8 +46,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen w-screen flex items-center justify-center bg-gray-50 p-4 fade-in">
-      <div className="max-w-md w-full bg-white rounded-xl border border-gray-200 shadow-lg p-8">
+    <div className="min-h-screen w-screen flex items-center justify-center bg-bg p-4 fade-in">
+      <div className="max-w-md w-full bg-card rounded-xl border border-muted/20 shadow-lg p-8">
         {/* Brand Header */}
         <div className="text-center mb-8">
           <div className="inline-flex bg-blue-600 p-2.5 rounded-xl text-white mb-4 shadow-md shadow-blue-500/20">
@@ -55,8 +55,8 @@ const Login = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold text-gray-800 tracking-tight">Mini CRM Portal</h2>
-          <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mt-1">Admin Operator Sign-In</p>
+          <h2 className="text-2xl font-bold text-text tracking-tight">Mini CRM Portal</h2>
+          <p className="text-xs text-muted font-semibold uppercase tracking-wider mt-1">Admin Operator Sign-In</p>
         </div>
 
         {/* Credentials Form */}
@@ -69,27 +69,27 @@ const Login = () => {
 
           {/* Email */}
           <div>
-            <label className="text-[10px] text-gray-400 font-bold uppercase tracking-wider block mb-1">Email Address</label>
+            <label className="text-[10px] text-muted font-bold uppercase tracking-wider block mb-1">Email Address</label>
             <input
               type="email"
               placeholder="admin@minicrm.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-xs font-semibold text-gray-700 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
+              className="w-full border border-muted/20 rounded-lg px-3 py-2.5 text-xs font-semibold text-text bg-bg focus:bg-card focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="text-[10px] text-gray-400 font-bold uppercase tracking-wider block mb-1">Password</label>
+            <label className="text-[10px] text-muted font-bold uppercase tracking-wider block mb-1">Password</label>
             <input
               type="password"
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-xs font-semibold text-gray-700 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
+              className="w-full border border-muted/20 rounded-lg px-3 py-2.5 text-xs font-semibold text-text bg-bg focus:bg-card focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
             />
           </div>
 
@@ -107,7 +107,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-200 text-white disabled:text-gray-400 rounded-lg text-xs font-bold shadow-md shadow-blue-500/10 hover:shadow-lg transition flex items-center justify-center gap-1.5"
+            className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 disabled:border-muted/20 text-white disabled:text-muted rounded-lg text-xs font-bold shadow-md shadow-blue-500/10 hover:shadow-lg transition flex items-center justify-center gap-1.5"
           >
             {loading ? 'Authenticating...' : 'Sign In to Dashboard'}
           </button>

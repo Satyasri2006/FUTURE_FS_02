@@ -34,10 +34,10 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="flex-1 flex items-center justify-center bg-gray-50 h-full">
+      <div className="flex-1 flex items-center justify-center bg-bg h-full">
         <div className="flex flex-col items-center gap-3">
           <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-sm font-semibold text-gray-500">Loading Dashboard Metrics...</p>
+          <p className="text-sm font-semibold text-muted">Loading Dashboard Metrics...</p>
         </div>
       </div>
     );
@@ -45,7 +45,7 @@ const Dashboard = () => {
 
   if (error) {
     return (
-      <div className="flex-1 p-8 bg-gray-50 overflow-y-auto">
+      <div className="flex-1 p-8 bg-bg overflow-y-auto">
         <div className="bg-red-50 border border-red-200 rounded-xl p-6 text-red-800 shadow-sm max-w-xl mx-auto mt-10">
           <div className="flex gap-3">
             <svg className="w-6 h-6 flex-shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -68,21 +68,21 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="flex-1 p-8 bg-gray-50 overflow-y-auto h-full fade-in">
+    <div className="flex-1 p-8 bg-bg overflow-y-auto h-full fade-in">
       {/* Title */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-800">Operational Overview</h1>
-        <p className="text-sm text-gray-500">Monitor current leads intake, interactions, and conversions.</p>
+        <h1 className="text-2xl font-bold text-text">Operational Overview</h1>
+        <p className="text-sm text-muted">Monitor current leads intake, interactions, and conversions.</p>
       </div>
 
       {/* KPI Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         {/* Card 1: Total Leads */}
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between">
+        <div className="bg-card p-6 rounded-xl border border-muted/20 shadow-sm flex items-center justify-between">
           <div>
-            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Total Leads</span>
-            <h3 className="text-3xl font-bold text-gray-800 mt-1">{totalLeads}</h3>
-            <span className="text-[10px] text-gray-500 font-medium">In CRM Database</span>
+            <span className="text-xs font-semibold text-muted uppercase tracking-wider">Total Leads</span>
+            <h3 className="text-3xl font-bold text-text mt-1">{totalLeads}</h3>
+            <span className="text-[10px] text-muted font-medium">In CRM Database</span>
           </div>
           <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -92,9 +92,9 @@ const Dashboard = () => {
         </div>
 
         {/* Card 2: Contacted */}
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between">
+        <div className="bg-card p-6 rounded-xl border border-muted/20 shadow-sm flex items-center justify-between">
           <div>
-            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Contacted Leads</span>
+            <span className="text-xs font-semibold text-muted uppercase tracking-wider">Contacted Leads</span>
             <h3 className="text-3xl font-bold text-amber-600 mt-1">{contactedLeads}</h3>
             <span className="text-[10px] text-amber-600 bg-amber-50 px-2 py-0.5 rounded font-bold border border-amber-200">
               {totalLeads > 0 ? ((contactedLeads / totalLeads) * 100).toFixed(0) : 0}% of total
@@ -108,9 +108,9 @@ const Dashboard = () => {
         </div>
 
         {/* Card 3: Converted */}
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between">
+        <div className="bg-card p-6 rounded-xl border border-muted/20 shadow-sm flex items-center justify-between">
           <div>
-            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Converted Leads</span>
+            <span className="text-xs font-semibold text-muted uppercase tracking-wider">Converted Leads</span>
             <h3 className="text-3xl font-bold text-emerald-600 mt-1">{convertedLeads}</h3>
             <span className="text-[10px] text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded font-bold border border-emerald-200">
               {totalLeads > 0 ? ((convertedLeads / totalLeads) * 100).toFixed(0) : 0}% of total
@@ -124,11 +124,11 @@ const Dashboard = () => {
         </div>
 
         {/* Card 4: Conversion Rate */}
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between">
+        <div className="bg-card p-6 rounded-xl border border-muted/20 shadow-sm flex items-center justify-between">
           <div>
-            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Win Ratio</span>
+            <span className="text-xs font-semibold text-muted uppercase tracking-wider">Win Ratio</span>
             <h3 className="text-3xl font-bold text-indigo-600 mt-1">{conversionRate}%</h3>
-            <span className="text-[10px] text-gray-500 font-medium">Conversion Rate</span>
+            <span className="text-[10px] text-muted font-medium">Conversion Rate</span>
           </div>
           <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -139,15 +139,15 @@ const Dashboard = () => {
       </div>
 
       {/* Main Content: Recent activity lists */}
-      <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+      <div className="bg-card rounded-xl border border-muted/20 shadow-sm p-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-lg font-bold text-gray-800">Recently Registered Leads</h2>
-            <p className="text-xs text-gray-400">Latest pipeline logs added to the database.</p>
+            <h2 className="text-lg font-bold text-text">Recently Registered Leads</h2>
+            <p className="text-xs text-muted">Latest pipeline logs added to the database.</p>
           </div>
           <Link 
             to="/leads" 
-            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold text-xs rounded-lg transition"
+            className="px-4 py-2 bg-surface hover:border-muted/20 text-text font-semibold text-xs rounded-lg transition"
           >
             Manage All Leads
           </Link>
@@ -160,8 +160,8 @@ const Dashboard = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="font-bold text-gray-700">No leads registered yet</h3>
-            <p className="text-xs text-gray-400 max-w-sm mt-1 mb-4">
+            <h3 className="font-bold text-text">No leads registered yet</h3>
+            <p className="text-xs text-muted max-w-sm mt-1 mb-4">
               Your database cluster is empty. Head over to the leads directory page to insert your first record.
             </p>
             <Link 
@@ -175,7 +175,7 @@ const Dashboard = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-gray-100 text-gray-400 text-xs font-bold uppercase tracking-wider">
+                <tr className="border-b border-muted/10 text-muted text-xs font-bold uppercase tracking-wider">
                   <th className="pb-3 pl-4">Lead Name</th>
                   <th className="pb-3">Company</th>
                   <th className="pb-3">Source</th>
@@ -186,13 +186,13 @@ const Dashboard = () => {
               </thead>
               <tbody className="divide-y divide-gray-50 text-sm">
                 {leads.slice(0, 5).map((lead) => (
-                  <tr key={lead._id} className="hover:bg-gray-50/50 transition">
+                  <tr key={lead._id} className="hover:bg-bg/50 transition">
                     <td className="py-4 pl-4">
-                      <div className="font-semibold text-gray-800">{lead.name}</div>
-                      <div className="text-xs text-gray-400">{lead.email}</div>
+                      <div className="font-semibold text-text">{lead.name}</div>
+                      <div className="text-xs text-muted">{lead.email}</div>
                     </td>
-                    <td className="py-4 text-gray-600 font-medium">{lead.company || '-'}</td>
-                    <td className="py-4 text-gray-500 text-xs font-medium">{lead.source}</td>
+                    <td className="py-4 text-muted font-medium">{lead.company || '-'}</td>
+                    <td className="py-4 text-muted text-xs font-medium">{lead.source}</td>
                     <td className="py-4">
                       <span className={`inline-block px-2.5 py-1 text-xs font-bold rounded-full uppercase tracking-wider border ${
                         lead.status === 'New' 
@@ -204,7 +204,7 @@ const Dashboard = () => {
                         {lead.status}
                       </span>
                     </td>
-                    <td className="py-4 text-xs text-gray-400 font-medium">
+                    <td className="py-4 text-xs text-muted font-medium">
                       {new Date(lead.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                     </td>
                     <td className="py-4 pr-4 text-right">

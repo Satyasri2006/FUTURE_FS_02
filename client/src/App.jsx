@@ -13,19 +13,17 @@ import { AuthProvider, AuthContext } from './context/AuthContext';
  * Main application content wrapper that checks context to mount appropriate layout framework.
  */
 const AppContent = () => {
-  const { user } = useContext(AuthContext);
-
-  if (!user) {
-    return (
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Navigate to="/login" replace />} />
-      </Routes>
-    );
-  }
+  const { user, loading } = useContext(AuthContext);
+  if (loading) {
+  return (
+    <div className="flex items-center justify-center h-screen bg-bg text-text">
+      Loading...
+    </div>
+  );
+}
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-gray-50 font-sans antialiased text-gray-900">
+    <div className="flex h-screen w-screen overflow-hidden bg-bg font-sans antialiased text-text">
       {/* Sidebar Nav - Active for logged-in sessions */}
       <Sidebar />
 
@@ -62,9 +60,10 @@ const AppContent = () => {
                 </ProtectedRoute>
               } 
             />
-            
+            <Route path="/login" element={<Login />} />
             {/* Fallback Redirect to index */}
-            <Route path="*" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+<Route path="*" element={<Navigate to="/login" replace />} />
           </Routes>
         </main>
       </div>
