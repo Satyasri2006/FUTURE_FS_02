@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
+import leadRoutes from './routes/leadRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -15,7 +16,11 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Enable standard JSON request parsing
 
+// Core Routes
+app.use('/api/leads', leadRoutes);
+
 // Root API Health status check
+
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'healthy',
