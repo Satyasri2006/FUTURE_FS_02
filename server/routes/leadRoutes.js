@@ -9,8 +9,12 @@ import {
   addLeadNote,
   deleteLeadNote
 } from '../controllers/leadController.js';
+import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
+
+// Guard all CRM resource endpoints
+router.use(protect);
 
 // Root resource endpoints: /api/leads
 router.route('/')
